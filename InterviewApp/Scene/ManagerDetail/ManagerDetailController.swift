@@ -11,8 +11,8 @@ class ManagerDetailController: UIViewController {
     
     let viewModel = ManagerDetailViewModel()
     
-    @IBOutlet weak var managerLabel: UILabel!
-    @IBOutlet weak var managerPhoto: UIImageView!
+    @IBOutlet private weak var managerLabel: UILabel!
+    @IBOutlet private weak var managerPhoto: UIImageView!
     @IBOutlet private weak var mainTable: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,7 +111,7 @@ extension ManagerDetailController: UITableViewDelegate, UITableViewDataSource, U
             if let managerData = viewModel.manager, managerData.id == 1 {
                 return 0
             } else {
-                return 90
+                return 85
             }
         } else if indexPath.section == 2 {
             return 250

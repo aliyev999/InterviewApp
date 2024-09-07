@@ -15,7 +15,6 @@ class ManagerController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Managers List"
         configureViewModel()
     }
     

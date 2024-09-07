@@ -30,13 +30,13 @@
                         <buttonConfiguration key="configuration" style="plain" image="info.circle.fill" catalog="system"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Information for you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cI8-os-FCN">
-                        <rect key="frame" x="51" y="14" width="145" height="20"/>
+                        <rect key="frame" x="51" y="12" width="145" height="20"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Hafiz Mammadov is temporary unaviable. Ayan Aliyeva will help you in there period." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ic1-Xh-m6F">
-                        <rect key="frame" x="51" y="38" width="317" height="31.333333333333329"/>
+                        <rect key="frame" x="51" y="36" width="301" height="31.333333333333329"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -44,11 +44,11 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="LXc-9V-M5G" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="CMF-ok-ohR"/>
-                    <constraint firstAttribute="trailing" secondItem="ic1-Xh-m6F" secondAttribute="trailing" constant="4" id="Diz-Y4-aRX"/>
+                    <constraint firstAttribute="trailing" secondItem="ic1-Xh-m6F" secondAttribute="trailing" constant="20" symbolic="YES" id="Diz-Y4-aRX"/>
                     <constraint firstItem="ic1-Xh-m6F" firstAttribute="top" secondItem="cI8-os-FCN" secondAttribute="bottom" constant="4" id="E5b-4V-zxc"/>
                     <constraint firstItem="cI8-os-FCN" firstAttribute="leading" secondItem="LXc-9V-M5G" secondAttribute="trailing" constant="8" symbolic="YES" id="EiY-o4-kz0"/>
                     <constraint firstItem="ic1-Xh-m6F" firstAttribute="leading" secondItem="LXc-9V-M5G" secondAttribute="trailing" constant="8" symbolic="YES" id="eNx-dw-Hpx"/>
-                    <constraint firstItem="cI8-os-FCN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="xem-Cy-A6K"/>
+                    <constraint firstItem="cI8-os-FCN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="xem-Cy-A6K"/>
                     <constraint firstItem="LXc-9V-M5G" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="zEu-Gk-aVa"/>
                 </constraints>
             </tableViewCellContentView>

@@ -137,7 +137,6 @@
 		426703542C8C2D9400D6B9F0 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				426703482C8C227A00D6B9F0 /* Manager.swift */,
 				429BEBA92C88EBEE009DC531 /* ManagerController.swift */,
 				426703552C8C2DFE00D6B9F0 /* ManagerViewModel.swift */,
 			);
@@ -176,6 +175,7 @@
 				429BEB952C88B249009DC531 /* SceneDelegate.swift */,
 				4267034A2C8C246100D6B9F0 /* Networking */,
 				429BEBAC2C88F20A009DC531 /* ReusableView */,
+				42C406372C8C84D700BDB756 /* Model */,
 				426703532C8C2D8900D6B9F0 /* Scene */,
 				429BEB992C88B249009DC531 /* Main.storyboard */,
 				429BEB9C2C88B24C009DC531 /* Assets.xcassets */,
@@ -203,6 +203,14 @@
 				429FF8EC2C8C66C700C4D586 /* ManagerDetailViewModel.swift */,
 			);
 			path = ManagerDetail;
+			sourceTree = "<group>";
+		};
+		42C406372C8C84D700BDB756 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				426703482C8C227A00D6B9F0 /* Manager.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
