@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ManagerController: UIViewController, UIPopoverPresentationControllerDelegate {
+class ManagerController: UIViewController {
     
     @IBOutlet private weak var table: UITableView!
     

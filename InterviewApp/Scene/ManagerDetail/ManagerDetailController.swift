@@ -41,7 +41,7 @@ class ManagerDetailController: UIViewController {
         toastLabel.textAlignment = .center
         toastLabel.text = message
         toastLabel.alpha = 1.0
-        toastLabel.layer.cornerRadius = 19
+        toastLabel.layer.cornerRadius = 18
         toastLabel.clipsToBounds = true
         
         self.view.addSubview(toastLabel)
@@ -90,7 +90,10 @@ extension ManagerDetailController: UITableViewDelegate, UITableViewDataSource, U
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "\(ManagerCell.self)") as! ManagerCell
             cell.getManagerData(nameLabel: viewModel.manager?.name ?? "", phoneLabel: viewModel.manager?.phone ?? "", emailLabel: viewModel.manager?.email ?? "")
-            cell.onCopyButtonTapped = {
+            cell.onPhoneCopyButtonTapped = {
+                self.showToast(message: "Phone number successfully copied", font: .systemFont(ofSize: 11.0))
+            }
+            cell.onEmailCopyButtonTapped = {
                 self.showToast(message: "E-mail successfully copied", font: .systemFont(ofSize: 14.0))
             }
             return cell
