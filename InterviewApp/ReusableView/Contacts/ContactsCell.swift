@@ -7,12 +7,13 @@
 
 import UIKit
 
-
 class ContactsCell: UITableViewCell {
     
-    @IBOutlet weak var emailView: UIView!
-    @IBOutlet weak var callView: UIView!
-    @IBOutlet weak var whatsappView: UIView!
+    @IBOutlet private weak var emailView: UIView!
+    @IBOutlet private weak var callView: UIView!
+    @IBOutlet private weak var whatsappView: UIView!
+    
+    var onContactAction: ((ContactAction) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,36 +35,19 @@ class ContactsCell: UITableViewCell {
         whatsappView.addGestureRecognizer(whatsappTapGesture)
     }
     
-    @objc 
+    @objc
     private func emailViewTapped() {
-        print("Email view tapped")
-        if let emailURL = URL(string: "mailto:johndoe@mail.com") {
-            if UIApplication.shared.canOpenURL(emailURL) {
-                UIApplication.shared.open(emailURL, options: [:], completionHandler: nil)
-            }
-        }
+        onContactAction?(.email)
     }
     
-    @objc 
+    @objc
     private func callViewTapped() {
-        print("Call view tapped")
-        if let phoneURL = URL(string: "tel://+994505555555") {
-            if UIApplication.shared.canOpenURL(phoneURL) {
-                UIApplication.shared.open(phoneURL, options: [:], completionHandler: nil)
-            }
-        }
+        onContactAction?(.call)
     }
     
-    @objc 
+    @objc
     private func whatsappViewTapped() {
-        print("WhatsApp view tapped")
-        let phoneNumber = "+994505555555"
-        let whatsappURL = URL(string: "whatsapp://send?phone=\(phoneNumber)")
-        if let url = whatsappURL {
-            if UIApplication.shared.canOpenURL(url) {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            }
-        }
+        onContactAction?(.whatsapp)
     }
 }
 

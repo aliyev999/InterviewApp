@@ -13,7 +13,7 @@
 		42136E3F2C8A422C008D610B /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42136E3C2C8A422C008D610B /* InfoCell.swift */; };
 		42136E432C8A4996008D610B /* ManagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42136E422C8A4996008D610B /* ManagerCell.xib */; };
 		42136E442C8A4996008D610B /* ManagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42136E412C8A4996008D610B /* ManagerCell.swift */; };
-		425ECA492C8ECF7000E1B349 /* ContactAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425ECA482C8ECF7000E1B349 /* ContactAction.swift */; };
+		425ECA492C8ECF7000E1B349 /* CopyAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425ECA482C8ECF7000E1B349 /* CopyAction.swift */; };
 		426703492C8C227A00D6B9F0 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426703482C8C227A00D6B9F0 /* Manager.swift */; };
 		4267034D2C8C247A00D6B9F0 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4267034C2C8C247A00D6B9F0 /* NetworkManager.swift */; };
 		426703502C8C24AE00D6B9F0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4267034F2C8C24AE00D6B9F0 /* Alamofire */; };
@@ -31,6 +31,7 @@
 		429FF8E82C8C603600C4D586 /* PersonalManagerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429FF8E72C8C603600C4D586 /* PersonalManagerManager.swift */; };
 		429FF8EB2C8C66B600C4D586 /* ManagerDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429FF8EA2C8C66B600C4D586 /* ManagerDetailController.swift */; };
 		429FF8ED2C8C66C700C4D586 /* ManagerDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429FF8EC2C8C66C700C4D586 /* ManagerDetailViewModel.swift */; };
+		42D847A92C8F6D340039F6E6 /* ContactAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D847A82C8F6D340039F6E6 /* ContactAction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +41,7 @@
 		42136E3D2C8A422C008D610B /* InfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = "<group>"; };
 		42136E412C8A4996008D610B /* ManagerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerCell.swift; sourceTree = "<group>"; };
 		42136E422C8A4996008D610B /* ManagerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ManagerCell.xib; sourceTree = "<group>"; };
-		425ECA482C8ECF7000E1B349 /* ContactAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactAction.swift; sourceTree = "<group>"; };
+		425ECA482C8ECF7000E1B349 /* CopyAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyAction.swift; sourceTree = "<group>"; };
 		426703482C8C227A00D6B9F0 /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 		4267034C2C8C247A00D6B9F0 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		426703512C8C257700D6B9F0 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
@@ -59,6 +60,7 @@
 		429FF8E72C8C603600C4D586 /* PersonalManagerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalManagerManager.swift; sourceTree = "<group>"; };
 		429FF8EA2C8C66B600C4D586 /* ManagerDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerDetailController.swift; sourceTree = "<group>"; };
 		429FF8EC2C8C66C700C4D586 /* ManagerDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerDetailViewModel.swift; sourceTree = "<group>"; };
+		42D847A82C8F6D340039F6E6 /* ContactAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactAction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,7 +213,8 @@
 			isa = PBXGroup;
 			children = (
 				426703482C8C227A00D6B9F0 /* Manager.swift */,
-				425ECA482C8ECF7000E1B349 /* ContactAction.swift */,
+				425ECA482C8ECF7000E1B349 /* CopyAction.swift */,
+				42D847A82C8F6D340039F6E6 /* ContactAction.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -305,9 +308,10 @@
 				4267034D2C8C247A00D6B9F0 /* NetworkManager.swift in Sources */,
 				426703562C8C2DFE00D6B9F0 /* ManagerViewModel.swift in Sources */,
 				429BEBB02C88F255009DC531 /* ContactsCell.swift in Sources */,
-				425ECA492C8ECF7000E1B349 /* ContactAction.swift in Sources */,
+				425ECA492C8ECF7000E1B349 /* CopyAction.swift in Sources */,
 				42136E3A2C8A360C008D610B /* SubtitleCell.swift in Sources */,
 				429BEBAA2C88EBEE009DC531 /* ManagerController.swift in Sources */,
+				42D847A92C8F6D340039F6E6 /* ContactAction.swift in Sources */,
 				429BEB962C88B249009DC531 /* SceneDelegate.swift in Sources */,
 				42136E3F2C8A422C008D610B /* InfoCell.swift in Sources */,
 				426703492C8C227A00D6B9F0 /* Manager.swift in Sources */,

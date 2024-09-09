@@ -13,8 +13,8 @@ class ManagerCell: UITableViewCell {
     @IBOutlet private weak var phoneLabel: UILabel!
     @IBOutlet private weak var emailLabel: UILabel!
     
-    var onContactAction: ((ContactAction) -> Void)?
-    
+    var onCopyAction: ((CopyAction) -> Void)?
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -32,14 +32,14 @@ class ManagerCell: UITableViewCell {
     @IBAction func phoneCopyTapped(_ sender: Any) {
         UIPasteboard.general.string = phoneLabel.text
         if let phone = phoneLabel.text {
-            onContactAction?(.call(phone))
+            onCopyAction?(.call(phone))
         }
     }
     
     @IBAction func emailCopyTapped(_ sender: Any) {
         UIPasteboard.general.string = emailLabel.text
         if let email = emailLabel.text {
-            onContactAction?(.email(email))
+            onCopyAction?(.email(email))
         }
     }
 }

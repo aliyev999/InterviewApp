@@ -7,7 +7,8 @@
 
 import Foundation
 
-enum ContactAction {
-    case email(String)
-    case call(String)
+enum ContactAction: String {
+    case email = "mailto"
+    case call = "tel"
+    case whatsapp = "whatsapp://send?phone"
 }

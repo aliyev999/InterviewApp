@@ -66,18 +66,27 @@ extension ManagerDetailController: UITableViewDelegate, UITableViewDataSource, U
             if let manager = viewModel.manager {
                 cell.configure(with: manager)
             }
-
-            cell.onContactAction = { action in
+            cell.onCopyAction = { [self] action in
                 switch action {
                 case .call:
-                    self.showToast(message: "Phone number successfully copied", font: .systemFont(ofSize: 11.0))
+                    showToast(message: "Phone number successfully copied", font: .systemFont(ofSize: 11.0))
                 case .email:
-                    self.showToast(message: "E-mail successfully copied", font: .systemFont(ofSize: 14.0))
+                    showToast(message: "E-mail successfully copied", font: .systemFont(ofSize: 14.0))
                 }
             }
             return cell
         case 3:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "\(ContactsCell.self)") as! ContactsCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "\(ContactsCell.self)", for: indexPath) as! ContactsCell
+            cell.onContactAction = { [self] action in
+                switch action {
+                case .email:
+                    openURL(action: .email, data: viewModel.manager?.email ?? "")
+                case .call:
+                    openURL(action: .call, data: viewModel.manager?.phone ?? "")
+                case .whatsapp:
+                    openURL(action: .whatsapp, data: viewModel.manager?.phone ?? "")
+                }
+            }
             return cell
         default:
             let cell = UITableViewCell()
@@ -108,6 +117,26 @@ extension ManagerDetailController: UITableViewDelegate, UITableViewDataSource, U
             managerLabel.isHidden = true
         } else {
             managerLabel.isHidden = false
+        }
+    }
+}
+
+extension ManagerDetailController {
+    func openURL(action: ContactAction, data: String) {
+        let urlString: String
+        switch action {
+        case .email:
+            urlString = "\(action.rawValue):\(data)"
+        case .call:
+            urlString = "\(action.rawValue)://\(data)"
+        case .whatsapp:
+            urlString = "\(action.rawValue)=\(data)"
+        }
+        
+        if let appURL = URL(string: urlString), UIApplication.shared.canOpenURL(appURL) {
+            UIApplication.shared.open(appURL, options: [:], completionHandler: nil)
+        } else {
+            print("Cannot open URL: \(urlString)")
         }
     }
 }
