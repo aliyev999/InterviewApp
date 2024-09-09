@@ -8,6 +8,7 @@
 import Foundation
 
 protocol ManagerDataProtocol {
+    var id: Int? { get }
     var name: String? { get }
     var phone: String? { get }
     var email: String? { get }
