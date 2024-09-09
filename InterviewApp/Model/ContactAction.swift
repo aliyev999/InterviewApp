@@ -10,5 +10,4 @@ import Foundation
 enum ContactAction {
     case email(String)
     case call(String)
-    case whatsapp(String)
 }

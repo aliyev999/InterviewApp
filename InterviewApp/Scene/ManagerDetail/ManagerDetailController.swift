@@ -67,17 +67,14 @@ extension ManagerDetailController: UITableViewDelegate, UITableViewDataSource, U
                 cell.configure(with: manager)
             }
 
-            cell.onContactAction = {action in
+            cell.onContactAction = { action in
                 switch action {
                 case .call:
                     self.showToast(message: "Phone number successfully copied", font: .systemFont(ofSize: 11.0))
                 case .email:
                     self.showToast(message: "E-mail successfully copied", font: .systemFont(ofSize: 14.0))
-                case .whatsapp:
-                    self.showToast(message: "WhatsApp phone number copied", font: .systemFont(ofSize: 11.0))
                 }
             }
-
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "\(ContactsCell.self)") as! ContactsCell

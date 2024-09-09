@@ -42,10 +42,4 @@ class ManagerCell: UITableViewCell {
             onContactAction?(.email(email))
         }
     }
-    
-    @IBAction func whatsappTapped(_ sender: Any) {
-        if let phone = phoneLabel.text {
-            onContactAction?(.whatsapp(phone))
-        }
-    }
 }
