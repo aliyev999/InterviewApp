@@ -7,7 +7,13 @@
 
 import Foundation
 
-struct Manager: Codable {
+protocol ManagerDataProtocol {
+    var name: String? { get }
+    var phone: String? { get }
+    var email: String? { get }
+}
+
+struct Manager: Codable, ManagerDataProtocol {
     let id: Int?
     let name: String?
     let email: String?

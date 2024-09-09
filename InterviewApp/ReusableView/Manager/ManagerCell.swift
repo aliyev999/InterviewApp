@@ -8,13 +8,12 @@
 import UIKit
 
 class ManagerCell: UITableViewCell {
-
+    
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var phoneLabel: UILabel!
     @IBOutlet private weak var emailLabel: UILabel!
     
-    var onPhoneCopyButtonTapped: (() -> Void)?
-    var onEmailCopyButtonTapped: (() -> Void)?
+    var onContactAction: ((ContactAction) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,19 +23,29 @@ class ManagerCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func getManagerData(nameLabel: String, phoneLabel: String, emailLabel: String) {
-        self.nameLabel.text = nameLabel
-        self.phoneLabel.text = phoneLabel
-        self.emailLabel.text = emailLabel
+    func configure(with manager: ManagerDataProtocol) {
+        self.nameLabel.text = manager.name
+        self.phoneLabel.text = manager.phone
+        self.emailLabel.text = manager.email
     }
     
     @IBAction func phoneCopyTapped(_ sender: Any) {
         UIPasteboard.general.string = phoneLabel.text
-        onPhoneCopyButtonTapped?()
+        if let phone = phoneLabel.text {
+            onContactAction?(.call(phone))
+        }
     }
     
     @IBAction func emailCopyTapped(_ sender: Any) {
         UIPasteboard.general.string = emailLabel.text
-        onEmailCopyButtonTapped?()
+        if let email = emailLabel.text {
+            onContactAction?(.email(email))
+        }
+    }
+    
+    @IBAction func whatsappTapped(_ sender: Any) {
+        if let phone = phoneLabel.text {
+            onContactAction?(.whatsapp(phone))
+        }
     }
 }

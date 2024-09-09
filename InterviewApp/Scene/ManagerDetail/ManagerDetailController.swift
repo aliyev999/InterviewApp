@@ -31,32 +31,6 @@ class ManagerDetailController: UIViewController {
         mainTable.register(UINib(nibName: "ContactsCell", bundle: nil), forCellReuseIdentifier: "\(ContactsCell.self)")
     }
     
-    private func showToast(message: String, font: UIFont) {
-        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 100,
-                                               y: self.view.frame.size.height - 100,
-                                               width: 200, height: 35))
-        toastLabel.backgroundColor = UIColor.systemGreen
-        toastLabel.textColor = UIColor.white
-        toastLabel.font = font
-        toastLabel.textAlignment = .center
-        toastLabel.text = message
-        toastLabel.alpha = 1.0
-        toastLabel.layer.cornerRadius = 18
-        toastLabel.clipsToBounds = true
-        
-        self.view.addSubview(toastLabel)
-        
-        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: {
-            toastLabel.alpha = 1.0
-        }, completion: { _ in
-            UIView.animate(withDuration: 3.0, delay: 0.5, options: .curveEaseOut, animations: {
-                toastLabel.alpha = 0.0
-            }, completion: { _ in
-                toastLabel.removeFromSuperview()
-            })
-        })
-    }
-    
     @IBAction func closeButtonTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -88,14 +62,22 @@ extension ManagerDetailController: UITableViewDelegate, UITableViewDataSource, U
             cell.getInfo(info: "\(viewModel.mainManager) is temporary unavaiable. \(viewModel.manager?.name ?? "") will help you in there period.")
             return cell
         case 2:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "\(ManagerCell.self)") as! ManagerCell
-            cell.getManagerData(nameLabel: viewModel.manager?.name ?? "", phoneLabel: viewModel.manager?.phone ?? "", emailLabel: viewModel.manager?.email ?? "")
-            cell.onPhoneCopyButtonTapped = {
-                self.showToast(message: "Phone number successfully copied", font: .systemFont(ofSize: 11.0))
+            let cell = tableView.dequeueReusableCell(withIdentifier: "\(ManagerCell.self)", for: indexPath) as! ManagerCell
+            if let manager = viewModel.manager {
+                cell.configure(with: manager)
             }
-            cell.onEmailCopyButtonTapped = {
-                self.showToast(message: "E-mail successfully copied", font: .systemFont(ofSize: 14.0))
+
+            cell.onContactAction = {action in
+                switch action {
+                case .call:
+                    self.showToast(message: "Phone number successfully copied", font: .systemFont(ofSize: 11.0))
+                case .email:
+                    self.showToast(message: "E-mail successfully copied", font: .systemFont(ofSize: 14.0))
+                case .whatsapp:
+                    self.showToast(message: "WhatsApp phone number copied", font: .systemFont(ofSize: 11.0))
+                }
             }
+
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "\(ContactsCell.self)") as! ContactsCell
@@ -130,5 +112,34 @@ extension ManagerDetailController: UITableViewDelegate, UITableViewDataSource, U
         } else {
             managerLabel.isHidden = false
         }
+    }
+}
+
+//ShowToast function
+extension ManagerDetailController {
+    private func showToast(message: String, font: UIFont) {
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 100,
+                                               y: self.view.frame.size.height - 100,
+                                               width: 200, height: 35))
+        toastLabel.backgroundColor = UIColor.systemGreen
+        toastLabel.textColor = UIColor.white
+        toastLabel.font = font
+        toastLabel.textAlignment = .center
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 18
+        toastLabel.clipsToBounds = true
+        
+        self.view.addSubview(toastLabel)
+        
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: {
+            toastLabel.alpha = 1.0
+        }, completion: { _ in
+            UIView.animate(withDuration: 3.0, delay: 0.5, options: .curveEaseOut, animations: {
+                toastLabel.alpha = 0.0
+            }, completion: { _ in
+                toastLabel.removeFromSuperview()
+            })
+        })
     }
 }
