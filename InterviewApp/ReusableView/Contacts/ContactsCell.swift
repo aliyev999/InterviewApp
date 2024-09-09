@@ -59,7 +59,6 @@ class ContactsCell: UITableViewCell {
         print("WhatsApp view tapped")
         let phoneNumber = "+994505555555"
         let whatsappURL = URL(string: "whatsapp://send?phone=\(phoneNumber)")
-        
         if let url = whatsappURL {
             if UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
